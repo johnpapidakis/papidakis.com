@@ -1,0 +1,246 @@
+;================================================
+; module : lab2.asm
+; created : XXXX
+;================================================
+;some useful bit address equates
+RDpin equ 0B3h
+WRpin equ 0B2h
+A0pin equ 0B5h
+A1pin equ 0B4h
+;lookup table for keypad values
+org 8000h
+KCODE0: db 06h,5Bh,4Fh,71h
+KCODE1: db 66h,6Dh,7Dh,79h
+KCODE2: db 07h,7Fh,67h,5Eh
+KCODE3: db 77H,3fh,7Ch,58h
+;start address for program
+org 8100h
+start:
+;configure 8255 control register
+
+setb wrpin;write signal
+setb rdpin;read siganl
+;set adddress to control registers
+setb A0PIN
+setb A1PIN
+
+mov A,#81h;set comtrol word
+mov P1, A
+lcall write;send write pulse to 8255
+
+; clear digit registers (just to be on safe side)
+mov R0,#00h
+mov R1,#00h
+mov R2,#00h
+mov R3,#00h
+
+clr A0PIN;set port to A
+clr A1PIN
+lcall write;send write pulse to 8255
+
+setb a0pin;set port to B
+clr A1PIN
+lcall write;send write pulse to 8255
+
+clr A0PIN;set port to C
+setb A1PIN
+lcall write;send write pulse to 8255
+
+lcall null;set digit registers to display 0000
+lcall Display
+;------- Start Keypad Loop ---------
+KLoop:
+clr A0pin
+setb A1pin
+mov a,#0FFH
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,KeyCheck;jump to KeyCheck if a key has been pressed
+clr a
+lcall Display
+ljmp KLoop;jump to kloop
+
+KeyCheck:
+clr A0pin
+setb A1pin
+
+;find row
+ 
+row0:
+mov a,#1FH
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,row_0
+
+row1:
+mov a,#2fh
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,row_1
+
+row2:
+mov a,#4fh
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,row_2
+
+row3:
+mov a,#8fh
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,row_3
+
+skip:;jump to kloop if row wasnt found
+ljmp Kloop
+
+;pass row values to dptr
+row_0: MOV DPTR,#KCODE0
+SJMP Key_Column_Value
+row_1: MOV DPTR,#KCODE1
+SJMP Key_Column_Value
+row_2: MOV DPTR,#KCODE2
+SJMP Key_Column_Value
+row_3: MOV DPTR,#KCODE3
+SJMP Key_Column_Value
+
+Key_Column_Value:;find column value of the row
+RRC A
+JC kshift
+INC DPTR
+SJMP Key_Column_Value
+
+kshift:;;shift the digit values of the display by one 
+CLR A
+movc a,@a+DPTR
+push 3
+PUSH 2
+PUSH 1
+PUSH 0
+POP 1
+POP 2
+pop 3
+ljmp findValue
+
+findValue:
+ljmp fvalue
+
+fValue:;IF “F” then reset the display and registers ELSE
+cjne a, #71h, otherValue
+clr a
+mov a,#3fh
+lcall null
+lcall display;Refresh the display
+
+
+otherValue:;Display the value of the number that was pressed
+MOV R0, A
+lcall display;Refresh the display
+ljmp bounce
+
+bounce:;function to avoid debouncing 
+clr A0pin
+setb A1pin
+mov a,#0FFH
+mov p1,a
+lcall write
+lcall read
+anl a,#0fh
+cjne a,#00h,bounce
+ljmp Kloop;return to start of loop
+;------- End Keypad Loop ---------
+;----- Start Display Subroutine -------
+display:
+;digit0
+    clr A0pin
+    clr A1pin
+    mov p1, R0
+    lcall write
+    setb A0pin
+    clr A1pin
+    mov p1, #00000001b ;indication 
+    lcall write
+    lcall delay
+    mov p1, #00000000b
+
+;digit1
+    clr A0pin;write digit 0 to port A
+    clr A1pin
+    mov p1, R1
+    lcall write
+
+    setb A0pin;;activate digit 0 to port B
+    clr A1pin
+    mov p1, #00000010b
+    lcall write
+    lcall delay
+    mov p1, #00000000b;;deactivate digit 0
+
+;digit2
+    clr A0pin
+    clr A1pin
+    mov p1, R2
+    lcall write
+    setb A0pin
+    clr A1pin
+    mov p1, #00000100b
+    lcall write
+    lcall delay
+    mov p1, #00000000b
+
+;digit3
+    clr A0pin
+    clr A1pin
+    mov p1, R3
+    lcall write
+    setb A0pin
+    clr A1pin
+    mov p1, #00001000b 
+    lcall write
+    lcall delay
+    mov p1, #00000000b
+    ret
+;----- End Display Subroutine -------
+
+;reset display to 0s
+null:
+mov r0,#3fh
+mov r1,#3fh
+mov r2,#3fh
+mov r3,#3fh
+ret
+
+;used once address and data lines setup
+delay:
+mov r7, #03h
+delay1:
+mov r6, #0FFh
+delay2:
+djnz r6, delay2
+djnz r7, delay1
+ret
+;----- 8255 READ Subroutine -------
+read:
+clr RDPIN
+mov a,p1
+setb RDPIN
+ret
+;----- 8255 WRITE Subroutine -------
+write:
+clr WRpin
+nop
+setb WRpin
+nop
+ret
+;----- End WRITE Subroutine -------
+END
+;================================================

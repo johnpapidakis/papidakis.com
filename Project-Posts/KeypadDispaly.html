@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>KeypadDispaly</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="KeypadDispaly.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 5.1.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "../images/ioannis-papidakis-low-resolution-logo-color-on-transparent-background.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="KeypadDispaly">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-11d2"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="https://papidakis.com/" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="154">
+          <img src="../images/ioannis-papidakis-low-resolution-logo-color-on-transparent-background.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../Home.html" style="padding: 10px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../blog/blog.html" style="padding: 10px;">Blog</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../Contact.html" style="padding: 10px;">Contact</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../blog/blog.html">Blog</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Contact.html">Contact</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-grey-5 u-section-1" id="sec-1856">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-1">Overview</h3>
+        <p class="u-align-justify u-text u-text-2"> The objective of this experiment is to control and monitor simple peripherals by utilizing a
+development board. In this case an 8051 microcontroller is used on the development board
+which is connected to a keypad and a display unit through an 8255 Peripheral Interface adapter.
+Additionally, with the usage of a source code the system will be able to scan the keypad for
+any single key press. If a key has been pressed its numerical value must be identified and be
+displayed to the left-most digit display .<br>
+          <br>Throughout this experiment the main hardware components that were used are:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>- Keypad with a 4x4 matrix of keys <br>- 4-digit 7-segment display unit <br>- 8051 Microcontroller <br>- 8255A Peripheral Interface Adapter
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-9d7c">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-text u-text-1">
+          <span style="text-decoration: underline !important;">
+            <span style="font-size: 1.875rem;">Keypad</span>
+            <br>
+          </span>
+          <br>There are 16 pushbuttons on the keypad. The figure below (Figure 1) shows the internal layout
+of the buttons with columns and rows. A multiplexed configuration, such as that seen in the
+Figure , is popular when using keypads for data entry with a limited number of I/O lines. The
+microcontroller is directly connected to the "R" row outputs and "C" column inputs using this
+layout as a guideline. Assume that resistors that are not visible are weakly pulling the C inputs
+down.&nbsp;
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-1bc3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-12at01.13.40.png" alt="" data-image-width="540" data-image-height="793">
+        <p class="u-text u-text-default u-text-1"> Figure 1: Block Diagram for
+Keypad Interfacing&nbsp;</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-2721">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-justify u-text u-text-1"> The following actions must be taken in sequence to detect when a key has been pressed:&nbsp;<br>
+          <br>- "1111"bin is used to drive the row outputs and then column values are read<br>- If the columns read "0000" no keys have been pressed. In contrast, if any column reads
+"1" it indicates that a key was pressed. The column containing the “1” Illustrates that
+							the key concerned is one of the four keys along that particular column.<br>
+          <br>After that the goal is to identify which one of the four keys was pressed as follows:<br>
+          <br>- While reading the column values the microcontroller is able to drive just one row to the
+							“1” state at a time<br>- The column outputs will have a value other than "0000" when the row containing the
+							pressed key is set to "1."
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="sec-f0b6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-align-left u-text u-text-1">
+          <span style="font-size: 1.875rem; text-decoration: underline !important;"> Controlling the Keypad via the 8255</span>
+          <span style="text-decoration: underline !important;">
+            <br>
+          </span>
+          <br>An 8255 device is used to increase the I/O of the 8051 when external memory addressing is utilised
+because of the limited number of port pins. The row lines (outputs) and columns (inputs) are connected
+to Port C of the 8255 via the higher nibble of Port C and the lower nibble of Port C, respectively. The
+ANL instruction generally helps to achieve this. When supply power is provided, the 8255
+automatically resets. It is important to first set up the 8255 Control Register with the required bit values
+in order to properly configure Port C of the 8255. When the device's A1pin and A0pin are set to "11"bin,
+the Control Register (CR) is accessible. The lower nibble pins of Port C must be configured as inputs,
+while the upper nibble pins must function as outputs. Furthermore, when A1pin and A0pin are both set
+to "10", Port C is accessible.&nbsp;
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-da41">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-text u-text-1">
+          <span style="font-size: 1.875rem; text-decoration: underline !important;"> Controlling the Display via the 8255</span>
+          <br>
+          <br>
+          <span style="font-size: 1.125rem;">There are four seven-segment units that form the display. Each individual segment can be
+controlled by sending control words to it. Port A of 8255 is connected to the segment pins
+a,b,c,..,h (parallel connection) to each one of the display modules. Then, to choose which of
+the four displays is on at any particular time, Port B's lower nibble is used.
+							A display subroutine can be used to allow the four display digits to show different information
+simultaneously. The way the subroutine mechanism works is as follows:
+							The 8051 uses four registers (R0, R1, R2, R3) to store the numerical value (segment code) for each
+individual display segment. The four display devices are selected one at a time. A display's specific
+segment code is written to the segment lines when it is active, allowing the proper value to be displayed.
+The display code of the following display device is used in its place when it is chosen. If this process is
+completed quickly enough, it looks like each of the four displays is constantly illuminated
+while displaying the corresponding numerical number.&nbsp;</span>
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sec-5d64">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-12at00.55.38.png" alt="" data-image-width="1723" data-image-height="860">
+        <p class="u-text u-text-default u-text-1"> Figure 2: Block Diagram for
+Keypad and Display Interfacing&nbsp;</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-d3f8">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-text u-text-1">
+          <span style="font-weight: 400; font-size: 1.875rem;"> Program Function</span>
+          <br>
+          <br>
+          <span style="font-size: 1.125rem;">The following actions are being performed that define the function of the program:<br>
+            <br>&nbsp;1) the contents of the R0 (left most digit), R1, R2 and R3 are constantly written to the display. These
+registers' contents contain the segment code for the equivalent decimal character.<br>
+            <br>&nbsp;2) Check for any single key press on the keypad. When a key press has been established the program
+has to identify the corresponding key that was pressed, and its numerical value used to ensure that the
+left-most digit displays the accurate value of the key. This applies to the keys “0...9” and “A...E”.<br>
+            <br>&nbsp;3) Each time a key is pressed, the value of each digit that is being displayed must be shifted by one
+place to the left. The value of the most significant digit is popped when it is updated with the value shifted (pushed) to the right. Since the registers R0, R1, R2, and R3 hold the value of the digits, their
+contents must be adjusted with the proper order of operations:&nbsp;<br>
+            <br>New R3 &lt;= Old R2<br> New R2 &lt;= Old R1<br> New R1 &lt;= Old R0<br> New R0 &lt;= Segment code for new key pressed<br>
+            <br>4) The display must be set to ensure flicker-free lighting of the characters stored in the R0, R1, R2 and
+R3 registers, and for that reason the keypad must feature a debounce mechanism.<br>
+            <br>&nbsp;5) Whenever “F” key is pressed the content of the registers R0, R1, R2, R3 should reset to heir null
+value (0000 displayed). Then, key presses will once again be displayed as being entered from the
+display's most-left digit.&nbsp;
+          </span>
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-container-align-center u-section-9" id="sec-e5bc">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-08at02.10.44.png" alt="" data-image-width="995" data-image-height="1633">
+        <p class="u-text u-text-default u-text-1">Figure 3: Flowchart for the program</p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-10" id="sec-111a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="50%">
+              <col width="50%">
+            </colgroup>
+            <tbody class="u-table-body">
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">RDpin equ 0B3h<br> WRpin equ 0B2h<br> A0pin equ 0B5h<br> A1pin equ 0B4h<br>
+                  <br>&nbsp;;lookup table for keypad values&nbsp;<br>org 8000h&nbsp;<br>KCODE0: db 06h,5Bh,4Fh,71h&nbsp;<br>KCODE1: db 66h,6Dh,7Dh,79h&nbsp;<br>KCODE2: db 07h,7Fh,67h,5Eh&nbsp;<br>KCODE3: db 77H,3fh,7Ch,58h<br>
+                  <br>&nbsp;org 8100h ;start address for program&nbsp;<br>start:<br> setb wrpin;write signal<br> setb rdpin;read siganl<br> ;set adddress to control registers&nbsp;<br>setb A0PIN<br> setb A1PIN<br> mov A,#81h ;set control word&nbsp;<br>mov P1, A<br> lcall write;send write pulse to 8255&nbsp;<br>
+                  <br>; clear digit registers (just to be on safe side)<br>mov R0,#00h<br> mov R1,#00h<br> mov R2,#00h&nbsp;<br>mov R3,#00h<br>
+                  <br>&nbsp;clr A0PIN ;set port to A<br> clr A1PIN<br> lcall write ;send write pulse to 8255&nbsp;<br>setb a0pin ;set port to B<br> clr A1PIN<br> lcall write ;send write pulse to 8255&nbsp;<br>clr A0PIN ;set port to C<br> setb A1PIN<br> lcall write&nbsp;<br>lcall null;set digit registers to display 0000&nbsp;<br>lcall Display&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">In order to avoid errors we initialize the port 3 pins
+with label names where P3.5 is A0pin, P3.4 is A1pin,
+P3.3 is RDpin and P3.2 is WRpin.<br>
+                  <br>There are four labels defined (KCODE1, KCODE2,
+KCODE3, KCODE4) that represent the values of four
+data Pointers (DPTR). Each row of hexadecimal
+numbers that is contained in the labels illustrates a row
+of the Keypad values (e.g 06h, 5Bh, 4Fh, 71h, stands
+for 1, 2, 3, F).&nbsp;<br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>Before there is an exchange of data between the
+microcontroller and the 8255, a control word must be
+sent to the control register of the 8255 adapter to
+configure port CU as output and CL as input. This is
+achieved by setting pins A1pin and A0pin to high and
+then passing the value 81h to port 1.&nbsp;<br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>It is important to pass the value 00h to the registers in
+order to ensure that all previous values held in them
+are erased. After that the value 3fh is passed to the
+registers (lcall null) and therefore the display’s output
+is set to null (0000).&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">KLoop:<br> clr A0pin<br> setb A1pin<br> mov a,#0FFH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br>cjne a,#00h,KeyCheck<br> clr a<br> lcall Display<br> ljmp Kloop ;jump to kloop&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">The program enters a loop called “KLoop” and starts
+reading the value of CL to determine if a key has
+been pressed.&nbsp;<br>
+                  <br>If CL = 0000, it means that no keys have been pressed and this loop repeats its self .&nbsp;<br>
+                  <br>Otherwise if the value of CL is other than 0000,
+the program jumps to KeyCheck .&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">KeyCheck:&nbsp;<br>clr A0pin&nbsp;<br>setb A1pin&nbsp;<br>
+                  <br>row0:<br> mov a,#1FH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br> cjne a,#00h,row_0<br>
+                  <br>row_0: MOV DPTR,#KCODE0<br>SJMP Key_Column_Value<br>
+                  <br>Key_Column_Value:<br> RRC A<br> JC kshift
+						INC DPTR<br> SJMP Key_Column_Value&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell">When jumping to KeyCheck we select port C by
+setting A0pin to low and A1pin to high. Then we
+enable row0 to high and scan the columns to
+identify if any of the columns are high . If yes it
+means that the key pressed is located in row0 and
+the program jumps to row_0 otherwise it moves
+on to row1 etc.<br>
+                  <br>The address of KCODE0 is moved to the DPTR and
+then the program jumps to Key_Column_Value. We
+are able to find the column number that is contained
+in the lower nibble of A by using the rotate right
+through carry command (RRC). If the carry flag is 0
+the value of the DPTR is incremented and the value of
+A is rotated until carry flag is 1. Then DPTR is set to
+the key's value and jumps to Kshift. Consequently,
+the located key code address of the pressed key is
+stored in the DPTR.&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Kshift:<br> CLR A<br> movc a,@a+DPTR&nbsp;<br>PUSH 3<br> PUSH 2<br> PUSH 1<br> PUSH 0<br> POP 1<br> POP 2<br> POP 3<br> ljmp findValue&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-8">Kshift is used to shift the digit values by 1 after
+a key has been pressed. To perform this
+procedure we represent the register values in
+the stack which uses the LIFO (Last In First Out)
+mechanism. That means that we push the value of
+registers 3, 2, 1 and 0 and then pop the values of
+registers 1, 2, 3 s that we can shift the previous
+values by one to the left. After that we jump to
+findValue.&nbsp;</td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-9">findValue:&nbsp;<br>ljmp fvalue&nbsp;<br>
+                  <br>fValue:<br> cjne a, #71h, otherValue<br> clr a&nbsp;<br>mov a,#3fh<br> lcall null<br> lcall display&nbsp;<br>
+                  <br>otherValue:<br> MOV R0, A<br> lcall display. ;Refresh the display&nbsp;<br>ljmp bounce&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-10">After entering findValue the program will jump to
+the fValue to check if the letter f has been pressed.
+						If it has then the display will reset to 0000,otherwise it will jump to otherValue.<br> The otherValue procedure will display value of any
+other key that was pressed and then it will jump to
+bounce.&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-11">bounce:<br> clr A0pin<br> setb A1pin<br> mov a,#0FFH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br> cjne a,#00h,bounce<br> ljmp Kloop;return to start of loop&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-12">This block of code check if the key that was pressed
+has been released (CL should read 0000) to continue.
+The reason for that is to avoid the signal from
+bouncing and to ensure that the corresponding value
+will be displayed when no key is pressed.&nbsp;</td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-13">display:&nbsp;<br>clr A0pin<br> clr A1pin<br> mov p1, R0<br> lcall write<br> setb A0pin<br> clr A1pin<br> mov p1, #00000001b ;indication&nbsp;<br>lcall write&nbsp;<br>lcall delay<br> mov p1, #00000000b&nbsp;<br>ret&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-14">The contents of R0, are copied into A
+(accumulator) before they are copied to Port 1 of
+8051 microcontrolleras well. The seven- segment
+code is written to port A on the 8255 adapter after
+selecting port A. The place of the new digit is then
+selected among the four display units where it will
+be displayed. We send 00000001b to port B in
+order to display the digit on the right-most unit.
+Delay is used to avoid bouncing issues. Same
+procedure is used and for the other three digits.&nbsp;</td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-15">read:<br> clr RDpin&nbsp;<br>mov a,p1&nbsp;<br>setb RDpin&nbsp;<br>ret&nbsp; <br>
+                  <br>write:<br> clr WRpin&nbsp;<br>nop<br> setb WRpin&nbsp;<br>nop<br> ret&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-16">This sub-routine is used to read data from P1. <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>This sub-routine is used to send a write pulse by
+turning WRpin turning on and off again.&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-17">delay:<br> mov r7, #03h&nbsp;<br>delay1:<br> mov r6, #0FFh&nbsp;<br>delay2:<br> djnz r6, delay2&nbsp;<br>djnz r7, delay1&nbsp;<br>ret&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-18">This sub-routine is used to create a tiny delay in
+order to avoid key-debouncing&nbsp;</td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-19">null:<br> mov r0,#3fh&nbsp;<br>mov r1,#3fh&nbsp;<br>mov r2,#3fh&nbsp;<br>mov r3,#3fh&nbsp;<br>ret<br>
+                  <br>&nbsp;end&nbsp;
+                </td>
+                <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-20">This sub-routine is used to set the value of the
+registers 1,2,3,0 to 3Fh and display 0000&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-a785">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <a href="../files/KeypadDisplayUnit.txt" class="u-active-none u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-dark-2 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-file-link u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-1">
+          <br>HERE&nbsp;
+        </a>
+        <p class="u-text u-text-default u-text-1">Full Assembly Language Code can be accessed</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="sec-b454">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-1">
+          <span style="font-size: 1.875rem;"> Description of how well the code operates</span>
+          <span style="text-decoration: underline !important;">
+            <br>
+          </span>
+          <br>
+          <span style="font-size: 1.125rem;">After various testing it is observed that the code performs perfectly without any errors and bugs and
+meets all the requirements. We manage to detect if any key is pressed at any point and display its
+equivalent value. The display has no problem shifting the values after a new key has been pressed and
+it resets the display to 0000 when the “F” key is pressed. We also included a “delay” and “bounce”
+subroutine to ensure a flicker free display and avoid any bouncing issues.&nbsp;</span>
+        </p>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-3ede"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1"> © 2022 Ioannis Papidakis - All Rights Reserved</p>
+      </div></footer>
+    
+  
+</body></html>
