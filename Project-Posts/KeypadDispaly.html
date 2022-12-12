@@ -35,7 +35,7 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-11d2"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://papidakis.com/" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="154">
+        <a href="http://papidakis.com" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="154">
           <img src="../images/ioannis-papidakis-low-resolution-logo-color-on-transparent-background.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -48,7 +48,7 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../Home.html" style="padding: 10px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../blog/blog.html" style="padding: 10px;">Blog</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../Blog.html" style="padding: 10px;">Blog</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-1-base" href="../Contact.html" style="padding: 10px;">Contact</a>
 </li></ul>
           </div>
@@ -57,7 +57,7 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../blog/blog.html">Blog</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Blog.html">Blog</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Contact.html">Contact</a>
 </li></ul>
               </div>
@@ -98,7 +98,7 @@ down.&nbsp;
     <section class="u-clearfix u-section-3" id="sec-1bc3">
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-12at01.13.40.png" alt="" data-image-width="540" data-image-height="793">
-        <p class="u-text u-text-default u-text-1"> Figure 1: Block Diagram for
+        <p class="u-align-center-xs u-text u-text-default u-text-1"> Figure 1: Block Diagram for
 Keypad Interfacing&nbsp;</p>
       </div>
     </section>
@@ -158,7 +158,7 @@ while displaying the corresponding numerical number.&nbsp;</span>
     <section class="u-clearfix u-section-7" id="sec-5d64">
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-12at00.55.38.png" alt="" data-image-width="1723" data-image-height="860">
-        <p class="u-text u-text-default u-text-1"> Figure 2: Block Diagram for
+        <p class="u-align-center-xs u-text u-text-default u-text-1"> Figure 2: Block Diagram for
 Keypad and Display Interfacing&nbsp;</p>
       </div>
     </section>
@@ -187,7 +187,7 @@ display's most-left digit.&nbsp;
         </p>
       </div>
     </section>
-    <section class="u-clearfix u-container-align-center u-section-9" id="sec-e5bc">
+    <section class="u-clearfix u-container-align-center-lg u-container-align-center-md u-container-align-center-sm u-container-align-center-xl u-section-9" id="sec-e5bc">
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-contain u-image-default u-image-1" src="../images/Screenshot2022-12-08at02.10.44.png" alt="" data-image-width="995" data-image-height="1633">
         <p class="u-text u-text-default u-text-1">Figure 3: Flowchart for the program</p>
@@ -198,11 +198,11 @@ display's most-left digit.&nbsp;
         <div class="u-table u-table-responsive u-table-1">
           <table class="u-table-entity">
             <colgroup>
-              <col width="50%">
-              <col width="50%">
+              <col width="31.5%">
+              <col width="68.5%">
             </colgroup>
             <tbody class="u-table-body">
-              <tr style="height: 46px;">
+              <tr style="height: 1852px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell">RDpin equ 0B3h<br> WRpin equ 0B2h<br> A0pin equ 0B5h<br> A1pin equ 0B4h<br>
                   <br>&nbsp;;lookup table for keypad values&nbsp;<br>org 8000h&nbsp;<br>KCODE0: db 06h,5Bh,4Fh,71h&nbsp;<br>KCODE1: db 66h,6Dh,7Dh,79h&nbsp;<br>KCODE2: db 07h,7Fh,67h,5Eh&nbsp;<br>KCODE3: db 77H,3fh,7Ch,58h<br>
                   <br>&nbsp;org 8100h ;start address for program&nbsp;<br>start:<br> setb wrpin;write signal<br> setb rdpin;read siganl<br> ;set adddress to control registers&nbsp;<br>setb A0PIN<br> setb A1PIN<br> mov A,#81h ;set control word&nbsp;<br>mov P1, A<br> lcall write;send write pulse to 8255&nbsp;<br>
@@ -243,7 +243,7 @@ registers (lcall null) and therefore the display’s output
 is set to null (0000).&nbsp;
                 </td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 521px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell">KLoop:<br> clr A0pin<br> setb A1pin<br> mov a,#0FFH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br>cjne a,#00h,KeyCheck<br> clr a<br> lcall Display<br> ljmp Kloop ;jump to kloop&nbsp;
                 </td>
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell">The program enters a loop called “KLoop” and starts
@@ -254,7 +254,7 @@ been pressed.&nbsp;<br>
 the program jumps to KeyCheck .&nbsp;
                 </td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 1223px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell">KeyCheck:&nbsp;<br>clr A0pin&nbsp;<br>setb A1pin&nbsp;<br>
                   <br>row0:<br> mov a,#1FH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br> cjne a,#00h,row_0<br>
                   <br>row_0: MOV DPTR,#KCODE0<br>SJMP Key_Column_Value<br>
@@ -280,7 +280,7 @@ the located key code address of the pressed key is
 stored in the DPTR.&nbsp;
                 </td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 621px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Kshift:<br> CLR A<br> movc a,@a+DPTR&nbsp;<br>PUSH 3<br> PUSH 2<br> PUSH 1<br> PUSH 0<br> POP 1<br> POP 2<br> POP 3<br> ljmp findValue&nbsp;
                 </td>
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-8">Kshift is used to shift the digit values by 1 after
@@ -293,7 +293,7 @@ registers 1, 2, 3 s that we can shift the previous
 values by one to the left. After that we jump to
 findValue.&nbsp;</td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 471px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-9">findValue:&nbsp;<br>ljmp fvalue&nbsp;<br>
                   <br>fValue:<br> cjne a, #71h, otherValue<br> clr a&nbsp;<br>mov a,#3fh<br> lcall null<br> lcall display&nbsp;<br>
                   <br>otherValue:<br> MOV R0, A<br> lcall display. ;Refresh the display&nbsp;<br>ljmp bounce&nbsp;
@@ -305,7 +305,7 @@ other key that was pressed and then it will jump to
 bounce.&nbsp;
                 </td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 396px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-11">bounce:<br> clr A0pin<br> setb A1pin<br> mov a,#0FFH<br> mov p1,a<br> lcall write<br> lcall read<br> anl a,#0fh<br> cjne a,#00h,bounce<br> ljmp Kloop;return to start of loop&nbsp;
                 </td>
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-12">This block of code check if the key that was pressed
@@ -314,7 +314,7 @@ The reason for that is to avoid the signal from
 bouncing and to ensure that the corresponding value
 will be displayed when no key is pressed.&nbsp;</td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 748px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-13">display:&nbsp;<br>clr A0pin<br> clr A1pin<br> mov p1, R0<br> lcall write<br> setb A0pin<br> clr A1pin<br> mov p1, #00000001b ;indication&nbsp;<br>lcall write&nbsp;<br>lcall delay<br> mov p1, #00000000b&nbsp;<br>ret&nbsp;
                 </td>
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-14">The contents of R0, are copied into A
@@ -328,7 +328,7 @@ order to display the digit on the right-most unit.
 Delay is used to avoid bouncing issues. Same
 procedure is used and for the other three digits.&nbsp;</td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 371px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-15">read:<br> clr RDpin&nbsp;<br>mov a,p1&nbsp;<br>setb RDpin&nbsp;<br>ret&nbsp; <br>
                   <br>write:<br> clr WRpin&nbsp;<br>nop<br> setb WRpin&nbsp;<br>nop<br> ret&nbsp;
                 </td>
@@ -341,13 +341,13 @@ procedure is used and for the other three digits.&nbsp;</td>
 turning WRpin turning on and off again.&nbsp;
                 </td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 221px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-17">delay:<br> mov r7, #03h&nbsp;<br>delay1:<br> mov r6, #0FFh&nbsp;<br>delay2:<br> djnz r6, delay2&nbsp;<br>djnz r7, delay1&nbsp;<br>ret&nbsp;
                 </td>
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-18">This sub-routine is used to create a tiny delay in
 order to avoid key-debouncing&nbsp;</td>
               </tr>
-              <tr style="height: 46px;">
+              <tr style="height: 221px;">
                 <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-19">null:<br> mov r0,#3fh&nbsp;<br>mov r1,#3fh&nbsp;<br>mov r2,#3fh&nbsp;<br>mov r3,#3fh&nbsp;<br>ret<br>
                   <br>&nbsp;end&nbsp;
                 </td>
